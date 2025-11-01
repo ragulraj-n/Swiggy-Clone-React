@@ -70,4 +70,29 @@
   margin-left: 15px;
 }
 
+.shimmer-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #ffffff;
+
+}
+.shimmer-card{
+    margin: 20px;
+    padding: 15px;
+    width: 240px;
+    height:300px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+
+}
+
+.shimmer-card-img{
+    margin:10px;
+    width:220px;
+    height:120px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+}
 
