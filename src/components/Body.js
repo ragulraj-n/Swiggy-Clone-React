@@ -1,14 +1,16 @@
 import ResCard from "./ResCard";
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
-    
+import Filter from "./Filter";   
 
 const Body = ()=>{
 
     
     const [restaurant,setRestaurant] = useState([]);
     const [listRes,setListRes] = useState(restaurant);
-    
+    const setFilteredList = (lr)=> {
+        setListRes(lr);
+    }
     useEffect(()=>{
         fetchData();
     },[]);
@@ -30,21 +32,7 @@ const Body = ()=>{
     }
     return (
      <div>
-        <div className="btn-bar">
-            <button className="top-rated-btn" onClick={()=>{
-            let filteredList = restaurant.filter((res)=>{
-                return  res.info.avgRating > 4.2;
-            })
-                console.log("Top Rated Button Clicked");
-                setListRes(filteredList);
-            }}>Top Rated Restaurants</button>
-
-            <button className="reset-btn" onClick={()=>{
-                setListRes(restaurant);
-                console.log("Reset Button Clicked");
-            }}>Reset Filters</button>
-        </div>
-            
+        <Filter restaurant={restaurant} setFilteredList={setFilteredList}/>
         <div className="res-container">
             {  
              listRes.map(
