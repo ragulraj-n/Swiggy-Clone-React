@@ -1,7 +1,8 @@
 import ResCard from "./ResCard";
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
-import Filter from "./Filter";   
+import Filter from "./Filter";  
+import { API_URL } from "../utils/constant";
 
 const Body = ()=>{
 
@@ -16,7 +17,7 @@ const Body = ()=>{
     },[]);
 
     const fetchData = async ()=>{
-        const apiData = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.01020&lng=76.97010&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const apiData = await fetch(API_URL);
 
         const jsonData = await apiData.json();
         const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
