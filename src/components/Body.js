@@ -31,6 +31,7 @@ const Body = ()=>{
         <Shimmer />
         )
     }
+    
     return (
      <div>
         <Filter restaurant={restaurant} setFilteredList={setFilteredList}/>

@@ -25,7 +25,6 @@ const Filter = ({restaurant,setFilteredList}) =>{
                         })
                     })
 
-                    console.log(filteredList2);
                     const filteredList = [...filteredList1,...filteredList2];
                     
                     const uniqueRestaurants = Array.from(
@@ -38,7 +37,7 @@ const Filter = ({restaurant,setFilteredList}) =>{
          <div className="sort-elements">
             <button className="top-rated-btn" onClick={()=>{
             let filteredList = restaurant.filter((res)=>{
-                return  res.info.avgRating > 4.2;
+                return  res.info.avgRating > 4.5;
             })
                 console.log("Top Rated Button Clicked");
                 setFilteredList(filteredList);
