@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import Filter from "./Filter";  
 import { API_URL } from "../utils/constant";
 
+
 const Body = ()=>{
 
     
@@ -15,7 +16,7 @@ const Body = ()=>{
     useEffect(()=>{
         fetchData();
     },[]);
-
+   
     const fetchData = async ()=>{
         const apiData = await fetch(API_URL);
 

@@ -1,6 +1,7 @@
 
 const Shimmer = () =>{
     console.log("Inside Shimmer");
+
     return(
         
         <div className="shimmer-container">
