@@ -1,4 +1,4 @@
-
+@import "tailwindcss";
 
 .logo{
     margin-top: 10px;
@@ -171,6 +171,4 @@
     width:470px;
     height:320px;
 }
-
-
 

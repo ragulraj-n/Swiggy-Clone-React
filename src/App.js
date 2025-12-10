@@ -38,8 +38,8 @@ const route = createBrowserRouter([
                 element:<Body />,
             },
             {
-                path:"/restaurant",
-                element:<RestaurantUI />
+                path:"/restaurant/:resId",
+                element:<RestaurantUI />,
             },
             
         ]
