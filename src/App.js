@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -6,6 +6,9 @@ import ErrorPage from './components/ErrorPage';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import About from './components/About';
 import Home from './components/Home';
+import RestaurantUI from './components/RestaurantUI';
+import { Buffer } from "buffer";
+window.Buffer = Buffer;
 
 const AppLayout = () => {
     return (
@@ -34,6 +37,11 @@ const route = createBrowserRouter([
                 path:"/order",
                 element:<Body />,
             },
+            {
+                path:"/restaurant",
+                element:<RestaurantUI />
+            },
+            
         ]
     },
 ])

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
-    "bulid": "bulid parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,9 +14,17 @@
     "parcel": "^2.16.3"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "axios": "^1.13.2",
+    "buffer": "^6.0.3",
+    "framer-motion": "^12.23.25",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^6.25.1"
+    "react-router-dom": "^6.25.1",
+    "tailwindcss": "^4.1.17"
+  },
+  "browser": {
+    "buffer": false
   }
 }
