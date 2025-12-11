@@ -8,6 +8,7 @@ import About from './components/About';
 import Home from './components/Home';
 import RestaurantUI from './components/RestaurantUI';
 import { Buffer } from "buffer";
+import Shimmer from './components/Shimmer';
 window.Buffer = Buffer;
 
 const AppLayout = () => {
@@ -41,7 +42,10 @@ const route = createBrowserRouter([
                 path:"/restaurant/:resId",
                 element:<RestaurantUI />,
             },
-            
+              {
+                path:"/shimmer",
+                element:<Shimmer />,
+            },            
         ]
     },
 ])

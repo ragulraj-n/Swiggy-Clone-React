@@ -5,14 +5,30 @@ const Filter = ({restaurant,setFilteredList}) =>{
 
     const [searchValue,setSearchValue] = useState("");
 
+
+
+// .top-rated-btn , .reset-btn {
+//   background-color: orangered;
+//   max-height: 35x;
+//   color: white;
+//   border: 1px;
+//   padding: 10px 10px;
+//   font-size: 12px;
+//   font-weight: 600;
+//   border-radius: 25px;
+//   cursor: pointer;
+//   margin-left: 15px;
+// }
+
+// }
+
+
     return (
-        <div  className="filter-bar">
-            <div className="search-bar">
-                <input className="search-input" 
+        <div  className="flex justify-between items-center m-2.5  p-2.5 bg-[#f0f0f0] rounded-xl">
+                <input className="ml-150 bg-white w-[20%] h-[40] px-5 py-2 rounded-md border-2 outline-none cursor-pointer border-orange-600" 
                 placeholder="Search Restaurants"
                 value={searchValue}
                 onChange={(e)=>{
-
                     const value = (e.target.value);
                     setSearchValue(value);
                     const filteredList1 = restaurant.filter((res)=>{
@@ -25,17 +41,16 @@ const Filter = ({restaurant,setFilteredList}) =>{
                         })
                     })
 
-                    const filteredList = [...filteredList1,...filteredList2];
-                    
+                    const filteredList = [...filteredList1,...filteredList2]; 
                     const uniqueRestaurants = Array.from(
                     new Map(filteredList.map((res) => [res.info.id, res])).values()
                     );
 
                     setFilteredList(uniqueRestaurants);
                 }} />
-            </div>
+
          <div className="sort-elements">
-            <button className="top-rated-btn" onClick={()=>{
+            <button className="bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
             let filteredList = restaurant.filter((res)=>{
                 return  res.info.avgRating > 4.5;
             })
@@ -43,7 +58,7 @@ const Filter = ({restaurant,setFilteredList}) =>{
                 setFilteredList(filteredList);
             }}>Top Rated Restaurants</button>
 
-            <button className="reset-btn" onClick={()=>{
+            <button className="bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
                 setFilteredList(restaurant);
                 console.log("Reset Button Clicked");
             }}>Reset Filters</button>

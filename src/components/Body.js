@@ -34,7 +34,7 @@ const Body = ()=>{
     return (
      <div>
         <Filter restaurant={restaurant} setFilteredList={setFilteredList}/>
-        <div className="res-container">
+        <div className="grid grid-cols-2 gap-20 my-15 mx-20 md:grid-cols-4">
             {  
              listRes.map(
                 (data)=>{

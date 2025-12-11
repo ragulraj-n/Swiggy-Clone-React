@@ -7,7 +7,7 @@ const Header = () =>{
             <div className="w-100 h-10">
             <img  className="w-[150px]" src={LOGO_URL}/>
             </div>
-            <div className="flex flex-row gap-10 mx-10">
+            <div className="flex flex-row gap-10 mx-10 text-lg">
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/order" className="nav-link">Order</Link>
                  <p>Cart</p>
