@@ -24,8 +24,8 @@ const Filter = ({restaurant,setFilteredList}) =>{
 
 
     return (
-        <div  className="flex justify-between items-center m-2.5  p-2.5 bg-[#f0f0f0] rounded-xl">
-                <input className="ml-150 bg-white w-[20%] h-[40] px-5 py-2 rounded-md border-2 outline-none cursor-pointer border-orange-600" 
+        <div  className="flex justify-around m-2.5  p-2.5 bg-[#f0f0f0] rounded-xl">
+                <input className="flex m-auto bg-white w-[20%] h-[40] px-5 py-2 rounded-md border-2 outline-none cursor-pointer border-orange-600" 
                 placeholder="Search Restaurants"
                 value={searchValue}
                 onChange={(e)=>{
@@ -50,7 +50,7 @@ const Filter = ({restaurant,setFilteredList}) =>{
                 }} />
 
          <div className="sort-elements">
-            <button className="bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
+            <button className=" m-auto bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
             let filteredList = restaurant.filter((res)=>{
                 return  res.info.avgRating > 4.5;
             })
@@ -58,7 +58,7 @@ const Filter = ({restaurant,setFilteredList}) =>{
                 setFilteredList(filteredList);
             }}>Top Rated Restaurants</button>
 
-            <button className="bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
+            <button className="m-auto bg-[orangered] p-[9] rounded-[25] mr-[20] cursor-pointer text-white" onClick={()=>{
                 setFilteredList(restaurant);
                 console.log("Reset Button Clicked");
             }}>Reset Filters</button>

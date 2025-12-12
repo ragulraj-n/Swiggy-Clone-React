@@ -3,7 +3,7 @@ import { LOGO_URL } from "../utils/constant";
 
 const Header = () =>{
     return(
-        <div className='w-[99%] m-2 p-3 border flex justify-between border-1 align-center items-center'>
+        <div className='w-[99%] m-2 p-3 border flex justify-between align-center items-center'>
             <div className="w-100 h-10">
             <img  className="w-[150px]" src={LOGO_URL}/>
             </div>

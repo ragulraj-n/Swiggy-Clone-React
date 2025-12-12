@@ -22,7 +22,6 @@ const ResCard = ({resData}) =>{
 export const withDiscountInfo = (ResCard) =>{
     return (resData)=>{
         const {header , subHeader} = resData.resData.info.aggregatedDiscountInfoV3;
-        console.log(header +" "+ subHeader);
         return (
         <div>
              <label className=" absolute text-white font-bold text-lg ml-6 mt-35 pb-2 pr-1">{header +" "+subHeader}</label>
