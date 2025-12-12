@@ -6,23 +6,6 @@ const Filter = ({restaurant,setFilteredList}) =>{
     const [searchValue,setSearchValue] = useState("");
 
 
-
-// .top-rated-btn , .reset-btn {
-//   background-color: orangered;
-//   max-height: 35x;
-//   color: white;
-//   border: 1px;
-//   padding: 10px 10px;
-//   font-size: 12px;
-//   font-weight: 600;
-//   border-radius: 25px;
-//   cursor: pointer;
-//   margin-left: 15px;
-// }
-
-// }
-
-
     return (
         <div  className="flex justify-around m-2.5  p-2.5 bg-[#f0f0f0] rounded-xl">
                 <input className="flex m-auto bg-white w-[20%] h-[40] px-5 py-2 rounded-md border-2 outline-none cursor-pointer border-orange-600" 
