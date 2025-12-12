@@ -10,7 +10,7 @@ const ItemCard = ({itemData}) =>{
     const rating = itemData?.ratings?.aggregatedRating?.rating;
     const ratingCountV2 = itemData?.ratings?.aggregatedRating?.ratingCountV2;
     return (
-        <div className="flex m-auto w-full border-2 border-gray-400 border-b-2 p-2.5 mb-6">
+        <div className="flex m-auto w-full border-gray-400 border-b-2 p-2.5 mb-2">
             <div className="w-[75%]">
                 <h2 className="text-lg font-semibold">{name}</h2> 
                 <h4 className="text-sm font-thin">{category}</h4>
