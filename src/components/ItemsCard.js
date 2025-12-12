@@ -19,7 +19,7 @@ const ItemCard = ({itemData}) =>{
                     <h4 className="text-sm font-semibold mb-2 text-green-800">⭐{rating}</h4>
                     <h4 className="text-xs font-semibold mb-2 ml-1 mt-0.5"> ({ratingCountV2})</h4>
                 </div>
-                <h4 className="text-sm  mb-2">{description}</h4>
+                <h4 className="text-sm  mb-2 overflow-auto">{description}</h4>
             </div>
             <div className="w-[25%]">
                 <img className="w-[300px] h-[170px] rounded-xl" src={IMAGE_URL + imageId }></img>

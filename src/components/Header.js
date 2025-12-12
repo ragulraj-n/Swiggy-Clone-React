@@ -5,7 +5,7 @@ const Header = () =>{
     return(
         <div className='w-[99%] m-2 p-3 border flex justify-between align-center items-center'>
             <div className="w-100 h-10">
-            <img  className="w-[150px]" src={LOGO_URL}/>
+           <Link to="/order"> <img  className="w-[150px]" src={LOGO_URL}/> </Link>
             </div>
             <div className="flex flex-row gap-10 mx-10 text-lg">
                     <Link to="/" className="nav-link">Home</Link>
