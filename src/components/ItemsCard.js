@@ -21,9 +21,24 @@ const ItemCard = ({itemData}) =>{
                 </div>
                 <h4 className="text-sm  mb-2 overflow-auto">{description}</h4>
             </div>
-            <div className="w-[25%]">
-                <img className="w-[300px] h-[170px] rounded-xl" src={IMAGE_URL + imageId }></img>
-            </div>
+            <div className="flex justify-center items-center w-[25%] relative">
+                {imageId ? (
+                    <div className="relative">
+                    <button
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[17%] font-bold bg-white text-green-700 rounded-sm">ADD</button>
+                    <img
+                        className="w-[300px] h-[170px] rounded-xl"
+                        src={IMAGE_URL + imageId}
+                        alt="item"
+                    />
+                    </div>
+                ) : (
+                    <button className="w-[50%] h-[25%] font-bold text-white bg-green-700 rounded-sm">
+                    ADD
+                    </button>
+                )}
+
+                </div>
         </div>
     )
 }

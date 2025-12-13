@@ -1,11 +1,9 @@
 import { useState } from "react";
 import ItemsCard from "./ItemsCard";
-const ResMenuCategory = ({menuCategory}) =>{
-
-    const [showItems , setShowItems] = useState(false);
+const ResMenuCategory = ({menuCategory ,isShowItems ,showItems}) =>{
     
     const handleClick = ()=>{
-        setShowItems(!showItems);
+        showItems();
     }
 
     const {title,itemCards} = menuCategory;
@@ -16,11 +14,10 @@ const ResMenuCategory = ({menuCategory}) =>{
             <h1 className="mr-2.5 text-xl">⬇</h1>
             </div>
            <div className="w-full bg-gray-300 h-3 rounded-xl mb-2.5"></div>
-
             <div className="w-full">
             {
                 itemCards.map((item)=>{
-                return showItems && <ItemsCard key={item?.card?.info?.id} itemData={item?.card?.info}/>
+                return isShowItems && <ItemsCard key={item?.card?.info?.id} itemData={item?.card?.info}/>
             })
             }
             </div>

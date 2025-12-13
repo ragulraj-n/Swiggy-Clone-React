@@ -11,7 +11,7 @@ const ResCard = ({resData}) =>{
             <div className="res-card-text mt-5">
             <h3 className=" text-xl font-semibold">{name}</h3>
             <h4>{avgRating} ⭐ • {deliveryTime} mins</h4>
-            <h5>{cuisines?.join(", ")}</h5>
+            <h5 className="truncate">{cuisines?.join(", ")}</h5>
             <h5>{locality}, {areaName}</h5>
       </div>
       </div>

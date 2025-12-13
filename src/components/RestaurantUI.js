@@ -8,16 +8,21 @@ const RestaurantUI = () =>{
 const { resId } = useParams();
 const [resData,setResData] = useState(null);
 const [resInfo,setResInfo] = useState(null);
+const [showItemsIndex , setShowItemsIndex] = useState(null);
 
 useEffect(()=>{
     fetchMenu();
 },[])
 
+const onShowItems = (index) =>{
+    (index === showItemsIndex) ? setShowItemsIndex(null) : setShowItemsIndex(index);  
+}
+
 const fetchDemoMenu = async () =>{
         const fetchedData = await fetch(`https://raw.githubusercontent.com/ragulraj-n/swiggy_api/main/menu/demo.json`);
         const jsonData = await fetchedData.json();
         const info = jsonData?.data?.cards[2]?.card?.card?.info;
-        const data = jsonData?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+        const data = jsonData?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards;
         setResData(data);
         setResInfo(info);
 }
@@ -48,7 +53,13 @@ const fetchMenu = async () =>{
            <div className=" flex w-[60%] h-3 rounded-2xl my-5 mx-auto bg-gray-300"></div>
            {
            itemCategory.map((item)=>{
-                    return <ResMenuCategory key={item?.card?.card?.categoryId} menuCategory={item?.card?.card} />
+                    return <ResMenuCategory key={item?.card?.card?.categoryId}
+                    isShowItems={showItemsIndex === item?.card?.card?.categoryId}
+                    menuCategory={item?.card?.card}
+                    showItems={() => {
+                        onShowItems(item?.card?.card?.categoryId)
+                    }
+                    }/>
                 }
             )
            }
