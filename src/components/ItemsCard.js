@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import { IMAGE_URL } from "../utils/constant";
+import { addItems } from "../utils/cartSlice";
 
 const ItemCard = ({itemData}) =>{
     const {name,category,description,imageId} = itemData;
@@ -9,6 +11,12 @@ const ItemCard = ({itemData}) =>{
     }
     const rating = itemData?.ratings?.aggregatedRating?.rating;
     const ratingCountV2 = itemData?.ratings?.aggregatedRating?.ratingCountV2;
+    const dispatch = useDispatch();
+    const handleClick = () =>{
+        console.log("Button Clicked")
+            dispatch(addItems("burger"));
+    }
+
     return (
         <div className="flex m-auto w-full border-gray-400 border-b-2 p-2.5 mb-2">
             <div className="w-[75%]">
@@ -25,7 +33,7 @@ const ItemCard = ({itemData}) =>{
                 {imageId ? (
                     <div className="relative">
                     <button
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[17%] font-bold bg-white text-green-700 rounded-sm">ADD</button>
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[17%] font-bold bg-white text-green-700 rounded-sm cursor-pointer" onClick={handleClick}>ADD</button>
                     <img
                         className="w-[300px] h-[170px] rounded-xl"
                         src={IMAGE_URL + imageId}
