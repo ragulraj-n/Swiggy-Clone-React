@@ -3,25 +3,20 @@ import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import Filter from "./Filter";  
 import { API_URL } from "../utils/constant";
+import useFetchRestuarantData from "../utils/useFetchRestaurantData";
 
 
 const Body = ()=>{
     const RestaurantWithDIscount = withDiscountInfo(ResCard);
-    const [restaurant,setRestaurant] = useState([]);
+    const restaurant = useFetchRestuarantData();
     const [listRes,setListRes] = useState(restaurant);
+
+    useEffect(() => {
+        setListRes(restaurant);
+    },[restaurant]);
+    
     const setFilteredList = (lr)=> {
         setListRes(lr);
-    }
-    useEffect(()=>{
-        fetchData();
-    },[setRestaurant]);
-   
-    const fetchData = async ()=>{
-        const apiData = await fetch(API_URL);
-        const jsonData = await apiData.json();
-        const data = jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        setRestaurant(data);
-        setListRes(data);
     }
 
     if(restaurant.length===0){
