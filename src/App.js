@@ -9,14 +9,18 @@ import Home from './components/Home';
 import RestaurantUI from './components/RestaurantUI';
 import { Buffer } from "buffer";
 import Shimmer from './components/Shimmer';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
 window.Buffer = Buffer;
 
 const AppLayout = () => {
     return (
+        <Provider store={appStore} >
         <div>
             <Header />
             <Outlet />
         </div>
+        </Provider>
     )
 }
 
