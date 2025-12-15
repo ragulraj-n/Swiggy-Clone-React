@@ -4,42 +4,20 @@ import ItemsCard from "./ItemsCard";
 import { useParams } from "react-router-dom";
 import ResInfoCard from "./ResInfoCard";
 import ResMenuCategory from "./ResMenuCategory";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+
 const RestaurantUI = () =>{
 const { resId } = useParams();
-const [resData,setResData] = useState(null);
-const [resInfo,setResInfo] = useState(null);
-const [showItemsIndex , setShowItemsIndex] = useState(null);
+const restaurantMenu = useRestaurantMenu(resId);
+ const resInfo = restaurantMenu?.data?.cards[2]?.card?.card?.info;
+ const resData = restaurantMenu?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-useEffect(()=>{
-    fetchMenu();
-},[])
+const [showItemsIndex , setShowItemsIndex] = useState(null);
 
 const onShowItems = (index) =>{
     (index === showItemsIndex) ? setShowItemsIndex(null) : setShowItemsIndex(index);  
 }
 
-const fetchDemoMenu = async () =>{
-        const fetchedData = await fetch(`https://raw.githubusercontent.com/ragulraj-n/swiggy_api/main/menu/demo.json`);
-        const jsonData = await fetchedData.json();
-        const info = jsonData?.data?.cards[2]?.card?.card?.info;
-        const data = jsonData?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards;
-        setResData(data);
-        setResInfo(info);
-}
-
-const fetchMenu = async () =>{
-    try{
-        const fetchedData = await  fetch(`https://raw.githubusercontent.com/ragulraj-n/swiggy_api/main/menu/${resId}.json`);
-        const jsonData = await fetchedData.json();
-        const info = jsonData?.data?.cards[2]?.card?.card?.info;
-        const data = jsonData?.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards;
-        setResData(data);
-        setResInfo(info);
-    }catch(err){
-        console.log("Not Found Demo Data Used");
-        fetchDemoMenu();
-    }
-};
     
     if(resData === null) return <Shimmer />
 
