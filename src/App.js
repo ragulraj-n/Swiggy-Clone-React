@@ -11,6 +11,7 @@ import { Buffer } from "buffer";
 import Shimmer from './components/Shimmer';
 import { Provider } from 'react-redux';
 import appStore from './utils/appStore';
+import Cart from './components/Cart';
 window.Buffer = Buffer;
 
 const AppLayout = () => {
@@ -49,7 +50,10 @@ const route = createBrowserRouter([
               {
                 path:"/shimmer",
                 element:<Shimmer />,
-            },            
+            },{
+                path:"/cart",
+                element:<Cart />,
+            },      
         ]
     },
 ])

@@ -11,10 +11,10 @@ const ItemCard = ({itemData}) =>{
     }
     const rating = itemData?.ratings?.aggregatedRating?.rating;
     const ratingCountV2 = itemData?.ratings?.aggregatedRating?.ratingCountV2;
+
     const dispatch = useDispatch();
     const handleClick = () =>{
-        console.log("Button Clicked")
-            dispatch(addItems("burger"));
+            dispatch(addItems(itemData));
     }
 
     return (
@@ -33,7 +33,7 @@ const ItemCard = ({itemData}) =>{
                 {imageId ? (
                     <div className="relative">
                     <button
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[17%] font-bold bg-white text-green-700 rounded-sm cursor-pointer" onClick={handleClick}>ADD</button>
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[17%] font-bold bg-white text-green-700 rounded-sm cursor-pointer" onClick={() => handleClick()}>ADD</button>
                     <img
                         className="w-[300px] h-[170px] rounded-xl"
                         src={IMAGE_URL + imageId}
