@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import EmptyCart from "./EmptyCart";
 import ItemCart from "./ItemCart";
+import ClearCart from "./ClearCart";
 
 const Cart = () =>{
     const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems[0]);
     if(cartItems.length == 0) return <EmptyCart />
 
     return (
@@ -21,7 +21,7 @@ const Cart = () =>{
         })
     }
 
-    
+    <ClearCart />
     </div>
     )
 }
